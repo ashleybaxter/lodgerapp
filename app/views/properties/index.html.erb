@@ -1,12 +1,30 @@
-<% if @properties.blank? %>
-  <p>You don't have any properties yet. <%= link_to "Add one now?", new_property_path(@property) %></p>
-<% else %>
-  <% @properties.each do |property| %>
-  <%= property.house_number %>
-  <%= property.street_address %>
-  <%= property.street_address_two %>
-  <%= property.city %>
-  <%= property.postcode %>
-  <%= link_to "[Delete]", property_path(property), :title => "Delete tenant", :method => 'delete', :confirm => "Are you sure?" %>
-  <% end %>
-<% end %>
+<div class="two-thirds main-content">
+	<div class="properties-management">
+		<h2 class="beta properties-filter-title">Properties:</h2>
+			<ul class="menu properties-filter">
+				<li class="active">
+					Occupied
+				</li>
+				<li>
+					Vacant
+				</li>
+			</ul>
+	<%= link_to new_property_path(@property), :class => "button new-property"  do %>
+	<span class="icon add-new"></span><%= "New property" %>
+	<% end %>
+	</div>
+
+	<section class="properties list">
+	<% @properties.each do |property| %>
+		<article class="property">
+			<div class="property-details">
+				<div class="property-info">
+					<h3 class="gamma property-address"><%= link_to truncate(full_address(property), :length => 45), property_path(property) %></h3>
+						<div class="menu tenants">
+						</div>
+				</div>
+			</div>
+		</article>
+	</section>
+	<% end %>
+</div>

@@ -1,4 +1,15 @@
-<%= @property.house_number %>, <%= @property.street_address %>,
-<%= @property.street_address_two %>,
-<%= @property.city %>,
-<%= @property.postcode.upcase %>
+<section class="full-property-details">
+	<article class="property-address-list">
+		<h2 class="beta page-title">Property Details</h2>
+
+		<span class="address-line"><%= @property.house_number %>, <%= @property.street_address %>,</span>
+		<span class="address-line"><%= @property.street_address_two %>,</span>
+		<span class="address-line"><%= @property.city %>,</span>
+		<span class="address-line"><%= @property.postcode.upcase %></span>
+
+		<%= link_to "[Edit]", edit_property_path(@property), :class => "edit edit-address", :title => "Edit address" %>
+		<%= link_to "[Delete]", property_path(@property), :class => "edit", :method => 'delete', :confirm => "Are you sure?" %>
+	</article>
+</section>
+
+<hr class="divider" />
