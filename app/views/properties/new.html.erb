@@ -1,0 +1,18 @@
+<%= form_for @property do |f| %>
+<fieldset>
+	<%= f.text_field :house_number, :placeholder => "Number" %>
+</fieldset>
+<fieldset>
+	<%= f.text_field :street_address, :placeholder => "Street 1" %>
+</fieldset>
+<fieldset>
+	<%= f.text_field :street_address_two, :placeholder => "Street 2" %>
+</fieldset>
+<fieldset>
+	<%= f.text_field :city, :placeholder => "City" %>
+</fieldset>
+<fieldset>
+	<%= f.text_field :postcode, :placeholder => "Postcode" %>
+</fieldset>
+	<%= f.submit %>
+<% end %>

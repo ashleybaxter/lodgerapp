@@ -1,0 +1,12 @@
+<% if @properties.blank? %>
+  <p>You don't have any properties yet. <%= link_to "Add one now?", new_property_path(@property) %></p>
+<% else %>
+  <% @properties.each do |property| %>
+  <%= property.house_number %>
+  <%= property.street_address %>
+  <%= property.street_address_two %>
+  <%= property.city %>
+  <%= property.postcode %>
+  <%= link_to "[Delete]", property_path(property), :title => "Delete tenant", :method => 'delete', :confirm => "Are you sure?" %>
+  <% end %>
+<% end %>
