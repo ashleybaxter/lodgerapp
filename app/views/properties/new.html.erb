@@ -1,4 +1,7 @@
+<h2>Add a new property</h2>
+
 <%= form_for @property do |f| %>
+<%= render "shared/property_error_message", :target => @property %>
 <fieldset>
 	<%= f.text_field :house_number, :placeholder => "Number" %>
 </fieldset>
@@ -14,5 +17,5 @@
 <fieldset>
 	<%= f.text_field :postcode, :placeholder => "Postcode" %>
 </fieldset>
-	<%= f.submit %>
+	<%= f.submit "Add property" %>
 <% end %>

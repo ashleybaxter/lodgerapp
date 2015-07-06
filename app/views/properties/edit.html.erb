@@ -1,4 +1,7 @@
+<h2>Edit property details</h2>
+
 <%= form_for @property do |f| %>
+<%= render "shared/property_error_message", :target => @property %>
 <fieldset>
 	<%= f.text_field :house_number, :placeholder => "Number" %>
 </fieldset>

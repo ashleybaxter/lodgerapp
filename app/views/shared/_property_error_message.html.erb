@@ -1,0 +1,10 @@
+<% if @property.errors.any? %>  
+ <div id="errorExplanation">  
+  <h4><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h4>  
+   <ul>  
+   <% @property.errors.full_messages.each do |msg| %>  
+   	<li><%= msg %></li>  
+   <% end %>  
+   </ul>  
+ </div>  
+<% end %>
