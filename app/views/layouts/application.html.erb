@@ -14,10 +14,24 @@
 		<nav class="main-nav">
 			<%= link_to image_tag("lodger-app-logo.png", :alt => "Lodger App", :class => "logo"), properties_url %>
 		</nav>
+		<% if user_signed_in? %>
 		<nav class="account-info">
-			<%= link_to "Create Account", :class=> "account-login" %> |
-			<%= link_to "Login", :class=> "account-login" %>
+			<ul class="account-nav">
+		  	<li class="account-nav__link">
+					<%= link_to "Hi #{current_user.email}", edit_user_registration_path, :class=> "account-link", :title => "My Account" %>
+			<ul class="account-nav__flyout">
+				<li><%= link_to "Edit account", edit_user_registration_path, :title => "Edit Account", :class=> "account-links" %></li>
+				<li><%= link_to "Logout", destroy_user_session_path, :method => :delete, :class=> "account-links" %></li>
+			</ul>
+				</li>
+			</ul>
 		</nav>
+		<% else %>
+		<nav class="account-info">
+			<%= link_to "Create Account", new_user_registration_path, :class=> "account-login" %> |
+			<%= link_to "Login", new_user_session_path, :class=> "account-login" %>
+		</nav>
+		<% end %>
 	</div>
 </header>
 <div class="wrapper">
