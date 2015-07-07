@@ -10,6 +10,7 @@ class PropertiesController < ApplicationController
 	def create
 		@property = Property.new(app_params)
 		if @property.save
+			flash[:success] = render_to_body(:partial => "shared/new_property_message")
 			redirect_to @property
 		else
 			render('new')

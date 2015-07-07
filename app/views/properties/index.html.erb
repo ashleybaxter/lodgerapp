@@ -9,8 +9,10 @@
 					Vacant
 				</li>
 			</ul>
-	<%= link_to new_property_path(@property), :class => "button new-property"  do %>
-	<span class="icon add-new"></span><%= "New property" %>
+	<% unless @properties.empty? %>
+		<%=link_to new_property_path(@property), :class => "button new-property" do %>
+		<span class="icon add-new"></span><%= "New property" %>
+		<% end %>
 	<% end %>
 	</div>
 
@@ -26,5 +28,11 @@
 			</div>
 		</article>
 	</section>
+	<% end %>
+
+	<% if @properties.empty? %>
+	<p class="property-empty">You don't have any properties yet. <%= link_to new_property_path(@property), :class => "button new-property" do %>
+	<span class="icon add-new"></span><%= "Add one now" %>
+	<% end %>
 	<% end %>
 </div>
