@@ -5,9 +5,22 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
+<header class="main-header">
+	<div class="wrapper">
+		<nav class="main-nav">
+			<%= link_to image_tag("lodger-app-logo.png", :alt => "Lodger App", :class => "logo"), properties_url %>
+		</nav>
+		<nav class="account-info">
+			<%= link_to "Create Account", :class=> "account-login" %> |
+			<%= link_to "Login", :class=> "account-login" %>
+		</nav>
+	</div>
+</header>
+<div class="wrapper">
 <% flash.each do |name, msg| %>
 	<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
 		<a class="close" data-dismiss="alert">&#215;</a>
@@ -16,6 +29,6 @@
 <% end %>
 
 <%= yield %>
-
+</div>
 </body>
 </html>
