@@ -1,0 +1,69 @@
+<section class="current-tenants">
+	<div class="current-tenants-management">
+		<h2 class="beta section-title">Current Tenant(s)</h2>
+	</div>
+	<div class="current-tenant">
+		
+	<h3 class="center">Enter tenant's details</h3>
+	<%= form_for @tenant, :html => { :class => "tenant-details" } do |f| %>
+		
+	<fieldset>
+		<%= f.label :first_name, "First Name:" %>
+		<%= f.text_field :first_name %>
+	</fieldset>
+	<fieldset>
+		<%= f.label :second_name, "Surname:" %>
+		<%= f.text_field :second_name %>
+	</fieldset>
+	<fieldset>
+		<%= f.label :email, "Email:" %>
+		<%= f.text_field :email %>
+	</fieldset>
+	<fieldset>
+		<%= f.label :house_phone, "House Phone:" %>
+		<%= f.text_field :house_phone %>
+	</fieldset>
+	<fieldset>
+		<%= f.label :mobile_phone, "Mobile Phone:" %>
+		<%= f.text_field :mobile_phone %>
+	</fieldset>
+	
+<hr class="divider" />
+
+<article class="tenant-agreement">
+	<h3 class="beta agreement-title">Renting Agreement</h3>
+		<div class="agreement-list">
+
+			<div class="agreement">
+				<h4 class="gamma ag-title">Start Date</h4>
+					<%= f.text_field :rent_start_date, :class => "agreement-info ag-start-date calendar-date date" %>
+			</div>
+				
+			<div class="agreement">
+				<h4 class="gamma ag-title">Tenancy Term</h4>
+					<%= f.select( :tenancy_term, {"1 month" => "one_monthly", "6 months" => "half_year", "1 year" => "yearly"}, :class => "agreement-info ag-end-date") %>		
+			</div>
+
+			<div class="agreement">
+				<h4 class="gamma ag-title">Rent Frequency</h4>
+					<span class="frequency">
+						<%= f.select( :rent_frequency, {"Weekly" => "weekly", "Fortnightly" => "fortnightly", "Monthly" => "monthly"}, :class => "agreement-info ag-frequency") %>
+					</span>	
+			</div>
+</article>
+
+<hr class="divider" />
+
+<article class="tenant-extras">
+	<div class="contract">
+		<%= f.file_field :tenancy_agreement, :id => "hidden-pdf", :style => "visibility:hidden" %>
+			<div title="Upload Agreement" class="pdf-download" id="visible-pdf">
+				<span class="icon-pdf"></span>
+					Upload Tenancy Agreement
+			</div>
+	</div>	
+</article>
+	<%= f.submit "Save changes", :class => "button submit" %>				
+	<% end %>
+	</div>
+</section>

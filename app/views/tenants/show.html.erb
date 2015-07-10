@@ -1,0 +1,56 @@
+<section class="current-tenants">
+	<div class="current-tenants-management">
+		<h2 class="beta section-title">Tenant Details</h2>
+	</div>
+
+	<div class="current-tenant">
+	<article class="tenant-details">
+	<div class="tenant">
+		<h3 class="tenant-name"><%= @tenant.first_name %></h3>
+		<p class="tenant-email"><%= mail_to(@tenant.email) %></p>
+		<p class="tenant-phone"><%= @tenant.house_phone %></p>
+		<p class="tenant-phone"><%= @tenant.mobile_phone %></p>
+		<%= link_to "[Delete]", tenant_path(@tenant), :class => "edit edit-tenant-details", :method => 'delete', :confirm => "Are you sure?" %>
+		<%= link_to "[Edit]", edit_tenant_path(@tenant), :class => "edit edit-tenant-details", :title => "Edit tenant details" %>
+	</div>
+	</article>
+
+	<hr class="divider" />
+	
+	<article class="tenant-agreement">
+		<h3 class="beta agreement-title">Renting Agreement</h3>
+		<div class="agreement-list">
+		<div class="agreement">
+			<h4 class="gamma ag-title">Start Date</h4>
+			<div class="agreement-info ag-start-date">
+				<span class="date"><%= @tenant.rent_start_date %></span>
+			</div>
+		</div>
+
+		<div class="agreement">
+			<h4 class="gamma ag-title">End Date</h4>
+			<div class="agreement-info ag-end-date">
+			</div>
+		</div>
+
+		<div class="agreement">
+			<h4 class="gamma ag-title">Rent Frequency</h4>
+			<div class="agreement-info ag-frequency">
+				<span class="frequency"><%= @tenant.rent_frequency.capitalize %></span>
+			</div>
+		</div>
+	</div>
+	</article>
+	
+	<hr class="divider" />
+
+	<article class="tenant-extras">
+		<div class="contract">
+		<% unless @tenant.tenancy_agreement.blank? %>
+			<%= link_to @tenant.tenancy_agreement.url, :class => "pdf-download" do %>
+				<span class="icon-pdf"></span><%= "View Tenancy Agreement" %>
+			<% end %>
+		<% end %>
+		</div>
+	</div>
+</section>

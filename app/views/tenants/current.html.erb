@@ -1,0 +1,23 @@
+<section class="current-tenants">
+	<div class="current-tenants-management">
+		<h2 class="beta properties-filter-title">Current Tenants (<%= @tenants.count %>)</h2>
+	</div>
+	
+<% @tenants.each do |tenant| unless @tenants.blank? %>
+	<article class="property">
+		<div class="property-details">
+		<div class="property-info">
+			<h3 class="tenant-name"><%= link_to tenant.first_name, tenant_path(tenant) %></h3>
+				<div class="property-address-current">
+				</div>
+		</div>
+
+		<div class="rent-info">
+		</div>
+		
+		</div>
+	</article>
+
+<% end %>
+<% end %>
+</section>
