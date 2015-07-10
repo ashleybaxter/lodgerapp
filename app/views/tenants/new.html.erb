@@ -1,7 +1,9 @@
+<%= render 'property_details' %>
+
 <section class="current-tenants">
 	<div class="current-tenant">
 		
-	<h3 class="center">Enter tenant's details</h3>
+	<h3 class="center">Enter new tenant's details</h3>
 	<%= form_for @tenant, :html => { :class => "tenant-details" }, :url => property_tenants_path(@property) do |f| %>
 	<%= render "shared/tenant_error_message", :target => @tenant %>
 		

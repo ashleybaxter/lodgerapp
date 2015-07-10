@@ -23,6 +23,7 @@
 				<div class="property-info">
 					<h3 class="gamma property-address"><%= link_to truncate(full_address(property), :length => 45), property_path(property) %></h3>
 						<div class="menu tenants">
+							<%= list_tenant_by_name(property) %>
 						</div>
 				</div>
 			</div>

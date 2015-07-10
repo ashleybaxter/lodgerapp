@@ -6,7 +6,7 @@
 	<div class="current-tenant">
 	<article class="tenant-details">
 	<div class="tenant">
-		<h3 class="tenant-name"><%= @tenant.first_name %></h3>
+		<h3 class="tenant-name"><%= full_name(@tenant) %></h3>
 		<p class="tenant-email"><%= mail_to(@tenant.email) %></p>
 		<p class="tenant-phone"><%= @tenant.house_phone %></p>
 		<p class="tenant-phone"><%= @tenant.mobile_phone %></p>
@@ -71,11 +71,20 @@
 
 	<article class="tenant-extras">
 		<div class="contract">
-		<% unless @tenant.tenancy_agreement.blank? %>
 			<%= link_to @tenant.tenancy_agreement.url, :class => "pdf-download" do %>
 				<span class="icon-pdf"></span><%= "View Tenancy Agreement" %>
 			<% end %>
-		<% end %>
 		</div>
-	</div>
+		<div class="totals">
+			<div class="total">
+				<h3 class="gamma total-title ver">Deposit:</h3>
+			</div>
+		<div class="total">
+			<h3 class="gamma total-title ver">Deposit received:</h3>
+		</div>
+		<div class="total">
+				<h3 class="gamma total-title ver">Total rent received:</h3>
+		</div>
+	</article>
+</div>
 </section>

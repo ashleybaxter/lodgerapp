@@ -1,14 +1,14 @@
 <section class="full-property-details">
 	<article class="property-address-list">
 		<h2 class="beta page-title">Property Details</h2>
-
 		<span class="address-line"><%= @property.house_number %>, <%= @property.street_address %>,</span>
+		<% unless @property.street_address_two.blank? %>
 		<span class="address-line"><%= @property.street_address_two %>,</span>
+		<% end %>
 		<span class="address-line"><%= @property.city %>,</span>
 		<span class="address-line"><%= @property.postcode.upcase %></span>
-
 		<%= link_to "[Edit]", edit_property_path(@property), :class => "edit edit-address", :title => "Edit address" %>
-		<%= link_to "[Delete]", property_path(@property), :class => "edit", :method => 'delete', :confirm => "Are you sure?" %>
+		<%= link_to "[Delete]", property_path(@property), :class => "delete edit", :method => 'delete', :data => { :confirm => "Are you sure?" } %>
 	</article>
 </section>
 
