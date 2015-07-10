@@ -1,1 +1,5 @@
-Your property was successfully added.
+Your property was successfully added. Would you like to add tenants to it now? <%= link_to new_property_path(@property), :class => "button new-property" do %>
+	<span class="icon add-new"></span><%= "Add one now" %>
+<% end %>
+
+<%= link_to "Not now", property_path(@property), :class => "small edit" %>
