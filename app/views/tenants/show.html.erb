@@ -21,6 +21,16 @@
 		<h3 class="beta agreement-title">Renting Agreement</h3>
 		<div class="agreement-list">
 		<div class="agreement">
+			<h4 class="gamma ag-title">Property</h4>
+				<div class="agreement-info ag-property">
+					<span class="address line"></span>
+					<span class="address line"></span>
+					<span class="address line"></span>
+					<span class="address line"></span>
+				</div>
+		</div>
+
+		<div class="agreement">
 			<h4 class="gamma ag-title">Start Date</h4>
 			<div class="agreement-info ag-start-date">
 				<span class="date"><%= @tenant.rent_start_date %></span>
@@ -37,6 +47,18 @@
 			<h4 class="gamma ag-title">Rent Frequency</h4>
 			<div class="agreement-info ag-frequency">
 				<span class="frequency"><%= @tenant.rent_frequency.capitalize %></span>
+			</div>
+		</div>
+
+		<div class="agreement">
+			<h4 class="gamma ag-title">Rent Amount</h4>
+			<div class="agreement-info ag-amount">
+			</div>
+		</div>
+
+		<div class="agreement rent-upfront">
+			<h4 class="gamma ag-title">Rent Upfront</h4>
+			<div class="agreement-info ag-frequency">   				
 			</div>
 		</div>
 	</div>

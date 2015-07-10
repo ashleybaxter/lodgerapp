@@ -12,5 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.datepicker
 //= require turbolinks
 //= require_tree .
+
+$("document").ready(function(){
+$("#hidden-pdf").change(function() {
+            alert('Succesfully uploaded.');
+        });
+});
+
+$(function(){
+    $('#visible-pdf').click(function(){
+        $('#hidden-pdf').click();
+    });
+});
