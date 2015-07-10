@@ -1,4 +1,6 @@
 class Property < ActiveRecord::Base
+	belongs_to :user
+	
 	validates 	:postcode, :city, :presence => true
 
 	validate :at_least_one_street_address_must_be_present

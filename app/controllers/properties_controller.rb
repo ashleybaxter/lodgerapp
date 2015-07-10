@@ -1,6 +1,9 @@
 class PropertiesController < ApplicationController
+
+	before_filter :authenticate_user!
+
 	def index
-		@properties = Property.all
+		@properties = current_user.properties
 	end
 
 	def new
@@ -9,6 +12,7 @@ class PropertiesController < ApplicationController
 
 	def create
 		@property = Property.new(app_params)
+		@property.user = current_user
 		if @property.save
 			flash[:success] = render_to_body(:partial => "shared/new_property_message")
 			redirect_to @property
