@@ -28,3 +28,9 @@ $(function(){
         $('#hidden-pdf').click();
     });
 });
+
+$(document).ready(function(){
+    $('select#tenant_tenancy_term, select#tenant_rent_frequency').customSelect();
+		$('select#event_start_time_4i, select#event_start_time_5i').customSelect({customClass:'eventSelect'});
+		$('select#event_property_id').customSelect({customClass:'eventPropertySelect'});
+});
