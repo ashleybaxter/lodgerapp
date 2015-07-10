@@ -1,0 +1,119 @@
+<section class="full-property-details">
+	<article class="property-address-list">
+		<h2 class="beta page-title">Property Details</h2>
+
+		<span class="address-line"><%= @property.house_number %>, <%= @property.street_address %>,</span>
+		<span class="address-line"><%= @property.street_address_two %>,</span>
+		<span class="address-line"><%= @property.city %>,</span>
+		<span class="address-line"><%= @property.postcode.upcase %></span>
+
+		<%= link_to "[Edit]", edit_property_path(@property), :class => "edit edit-address", :title => "Edit address" %>
+		<%= link_to "[Delete]", property_path(@property), :class => "edit", :method => 'delete', :confirm => "Are you sure?" %>
+	</article>
+</section>
+
+<hr class="divider" />
+
+<% unless @property.tenants.blank? %>
+<section class="current-tenants">
+	<div class="current-tenants-management">
+		<h2 class="beta section-title">Current <%= pluralize_without_count(@property.tenants.count, 'Tenant') %></h2>
+		<%= link_to new_property_tenant_path(@property, @tenant), :class => "button new-property" do %>
+		<span class="icon add-new"></span><%= "New tenant" %>
+		<% end %>
+	</div>
+<% @property.tenants.each do |tenant| %>
+<div class="current-tenant">
+	<article class="tenant-details">
+	<div class="tenant">
+		<h3 class="tenant-name"><%= link_to tenant.first_name + " " + tenant.second_name, property_tenant_path(tenant.property, tenant.id) %></h3>
+		<p class="tenant-email"><%= mail_to(tenant.email) %></p>
+		<p class="tenant-phone"><%= tenant.house_phone %></p>
+		<p class="tenant-phone"><%= tenant.mobile_phone %></p>
+		<%= link_to "[Delete]", property_tenant_path(@property, tenant), :class => "edit edit-tenant-details", :title => "Delete tenant", :data => { :confirm => "Are you sure?" } %>
+		<%= link_to "[Edit]", edit_property_tenant_path(@property, tenant), :class => "edit edit-tenant-details", :title => "Edit tenant details" %>
+	</div>
+	</article>
+                
+<hr class="divider" />
+        
+	<article class="tenant-agreement">
+	<h3 class="beta agreement-title">Renting Agreement</h3>
+	<div class="agreement-list">
+		<div class="agreement">
+		<h4 class="gamma ag-title">Property</h4>
+			<div class="agreement-info ag-property">
+			<span class="address line"><%= @property.house_number %>, <%= @property.street_address %>,</span>
+			<span class="address line"><%= @property.street_address_two %>,</span>
+			<span class="address line"><%= @property.city %>,</span>
+			<span class="address line"><%= @property.postcode.upcase %></span>
+			</div>
+		</div>
+                        
+		<div class="agreement">
+		<h4 class="gamma ag-title">Start Date</h4>
+		<div class="agreement-info ag-start-date">
+			<span class="date"><%= tenant.rent_start_date %></span>
+		</div>
+	</div>
+
+	<div class="agreement">
+		<h4 class="gamma ag-title">End Date</h4>
+			<div class="agreement-info ag-end-date">
+ 			</div>
+	</div>
+
+	<div class="agreement">
+		<h4 class="gamma ag-title">Rent Frequency</h4>
+			<div class="agreement-info ag-frequency">
+				<span class="frequency"><%= tenant.rent_frequency.capitalize %></span>
+			</div>
+	</div>
+                                        
+	<div class="agreement">
+ 		<h4 class="gamma ag-title">Rent Amount</h4>
+			<div class="agreement-info ag-amount">
+			</div>
+	</div>
+
+	<div class="agreement rent-upfront">
+		<h4 class="gamma ag-title">Rent Upfront</h4>
+		<div class="agreement-info ag-frequency">
+		</div>
+	</div>                                     
+ </article>
+        
+<hr class="divider" />
+
+	<article class="tenant-extras">
+	<div class="contract">
+		<%= link_to tenant.tenancy_agreement.url, :class => "pdf-download" do %>
+		<span class="icon-pdf"></span><%= "View Tenancy Agreement" %>
+	<% end %>
+	</div>
+
+	<div class="totals">
+		<div class="total">
+		<h3 class="gamma total-title ver">Deposit:</h3>
+		</div>
+
+		<div class="total">
+		<h3 class="gamma total-title ver">Deposit received:</h3>
+		</div>
+
+		<div class="total">
+		<h3 class="gamma total-title ver">Total rent received:</h3>
+		</div>
+   </div>
+	</article>                                                                    
+	</div>
+</section>
+<% end %>
+
+<% else %>
+
+<p class="property-empty">This property currently has no tenants. <%= link_to new_property_tenant_path(@property, @tenant), :class => "button new-property" do %>
+	<span class="icon add-new"></span><%= "Add one now" %>
+	<% end %></p>
+
+<% end %>
