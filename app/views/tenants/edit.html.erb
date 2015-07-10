@@ -5,7 +5,7 @@
 	<div class="current-tenant">
 		
 	<h3 class="center">Enter tenant's details</h3>
-	<%= form_for @tenant, :html => { :class => "tenant-details" } do |f| %>
+	<%= form_for @tenant, :html => { :class => "tenant-details" }, :url => property_tenant_path(@property, @tenant) do |f| %>
 	<%= render "shared/tenant_error_message", :target => @tenant %>
 		
 	<fieldset>

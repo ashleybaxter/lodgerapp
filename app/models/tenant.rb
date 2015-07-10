@@ -4,4 +4,6 @@ class Tenant < ActiveRecord::Base
 	validates :email, :format => { :with => /\A[^@]+@[^@]+\z/ }, :allow_blank => true
 
 	mount_uploader :tenancy_agreement, DocumentUploader
+
+	belongs_to :property
 end

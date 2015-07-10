@@ -10,8 +10,8 @@
 		<p class="tenant-email"><%= mail_to(@tenant.email) %></p>
 		<p class="tenant-phone"><%= @tenant.house_phone %></p>
 		<p class="tenant-phone"><%= @tenant.mobile_phone %></p>
-		<%= link_to "[Delete]", tenant_path(@tenant), :class => "edit edit-tenant-details", :method => 'delete', :confirm => "Are you sure?" %>
-		<%= link_to "[Edit]", edit_tenant_path(@tenant), :class => "edit edit-tenant-details", :title => "Edit tenant details" %>
+		<%= link_to "[Delete]", property_tenant_path(@property, @tenant), :class => "edit edit-tenant-details", :method => 'delete', :data => { :confirm => "Are you sure?" } %>
+		<%= link_to "[Edit]", edit_property_tenant_path(@property, @tenant), :class => "edit edit-tenant-details", :title => "Edit tenant details" %>
 	</div>
 	</article>
 
@@ -23,10 +23,13 @@
 		<div class="agreement">
 			<h4 class="gamma ag-title">Property</h4>
 				<div class="agreement-info ag-property">
-					<span class="address line"></span>
-					<span class="address line"></span>
-					<span class="address line"></span>
-					<span class="address line"></span>
+					<%= link_to property_path(@property) do %>
+					<span class="address line"><%= @property.house_number %></span>
+					<span class="address line"><%= @property.street_address %></span>
+					<span class="address line"><%= @property.street_address_two %></span>
+					<span class="address line"><%= @property.city %></span>
+					<span class="address line"><%= @property.postcode.upcase %></span>
+					<% end %>
 				</div>
 		</div>
 

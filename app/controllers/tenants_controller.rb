@@ -1,29 +1,34 @@
 class TenantsController < ApplicationController
 	def new
-		@tenant = Tenant.new
+		@property = Property.find(params[:property_id])
+		@tenant = @property.tenants.build
 	end
 
 	def create
-		@tenant = Tenant.new(app_params)
+		@property = Property.find(params[:property_id])
+		@tenant = @property.tenants.build(app_params)
 		if @tenant.save
-			redirect_to tenant_path(@tenant)
+			redirect_to property_tenant_path(@property, @tenant)
 		else
 			render('new')
 		end
 	end
 
 	def show
-		@tenant = Tenant.find(params[:id])
+		@property = Property.find(params[:property_id])
+		@tenant = @property.tenants.find(params[:id])
 	end
 
 	def edit
-		@tenant = Tenant.find(params[:id])
+		@property = Property.find(params[:property_id])
+		@tenant = @property.tenants.find(params[:id])
 	end
 
 	def update
-		@tenant = Tenant.find(params[:id])
+		@property = Property.find(params[:property_id])
+		@tenant = @property.tenants.find(params[:id])
 		if @tenant.update_attributes(app_params)
-			redirect_to (@tenant)
+			redirect_to property_tenant_path(@property, @tenant)
 		else
 			render('edit')
 		end
