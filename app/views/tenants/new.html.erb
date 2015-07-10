@@ -6,6 +6,7 @@
 		
 	<h3 class="center">Enter tenant's details</h3>
 	<%= form_for @tenant, :html => { :class => "tenant-details" } do |f| %>
+	<%= render "shared/tenant_error_message", :target => @tenant %>
 		
 	<fieldset>
 		<%= f.label :first_name, "First Name:" %>
@@ -27,7 +28,7 @@
 		<%= f.label :mobile_phone, "Mobile Phone:" %>
 		<%= f.text_field :mobile_phone %>
 	</fieldset>
-	
+
 <hr class="divider" />
 
 <article class="tenant-agreement">

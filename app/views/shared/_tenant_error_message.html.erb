@@ -1,0 +1,10 @@
+<% if @tenant.errors.any? %>  
+ <div id="errorExplanation">  
+  <h4><%= pluralize(@tenant.errors.count, "error") %> prohibited this tenant from being saved:</h4>  
+   <ul>  
+   <% @tenant.errors.full_messages.each do |msg| %>  
+   	<li><%= msg %></li>  
+   <% end %>  
+   </ul>  
+ </div>  
+<% end %>
