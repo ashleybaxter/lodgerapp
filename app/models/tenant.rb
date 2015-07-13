@@ -6,4 +6,5 @@ class Tenant < ActiveRecord::Base
 	mount_uploader :tenancy_agreement, DocumentUploader
 
 	belongs_to :property
+	has_one :payment
 end
