@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710162620) do
+ActiveRecord::Schema.define(version: 20150713121609) do
+
+  create_table "payments", force: true do |t|
+    t.decimal  "rent_amount"
+    t.decimal  "deposit"
+    t.boolean  "deposit_received"
+    t.integer  "tenant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "properties", force: true do |t|
     t.string   "house_number"
