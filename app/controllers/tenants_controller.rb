@@ -1,4 +1,6 @@
 class TenantsController < ApplicationController
+	before_filter :authenticate_user!
+
 	def new
 		@property = Property.find(params[:property_id])
 		@tenant = @property.tenants.build
@@ -41,7 +43,7 @@ class TenantsController < ApplicationController
 	end
 
 	def current
-		@tenants = Tenant.all
+		@tenants = current_user.tenants.all
 	end
 
 	def app_params
