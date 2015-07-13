@@ -7,4 +7,6 @@ class Tenant < ActiveRecord::Base
 
 	belongs_to :property
 	has_one :payment
+
+	accepts_nested_attributes_for :payment
 end

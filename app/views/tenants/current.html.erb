@@ -7,8 +7,9 @@
 	<article class="property">
 		<div class="property-details">
 		<div class="property-info">
-			<h3 class="tenant-name"><%= link_to tenant.first_name, property_tenant_path(tenant.property, tenant) %></h3>
+			<h3 class="tenant-name"><%= link_to full_name(tenant), property_tenant_path(tenant.property, tenant) %></h3>
 				<div class="property-address-current">
+					<%= property_address(tenant) %>
 				</div>
 		</div>
 

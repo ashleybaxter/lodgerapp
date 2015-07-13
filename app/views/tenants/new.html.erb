@@ -50,6 +50,14 @@
 						<%= f.select( :rent_frequency, {"Weekly" => "weekly", "Fortnightly" => "fortnightly", "Monthly" => "monthly"}, :class => "agreement-info ag-frequency") %>
 					</span>	
 			</div>
+
+			<div class="agreement currency">
+				<h4 class="gamma ag-title">Rent Amount</h4>
+					<%= f.fields_for :payment do |builder| %>
+						<%= builder.text_field :rent_amount, :class => "agreement-info ag-amount amount" %>
+					<% end %>
+			</div>
+		</div>
 </article>
 
 <hr class="divider" />
@@ -61,7 +69,19 @@
 				<span class="icon-pdf"></span>
 					Upload Tenancy Agreement
 			</div>
-	</div>	
+	</div>
+
+	<div class="totals">
+		<div class="total deposit">
+			<h3 class="gamma total-title">Deposit:</h3>
+				<%= f.fields_for :payment do |builder| %>
+					<%= builder.text_field :deposit, :class => "total-amount" %>
+						<%= f.label :deposit_received, "Deposit Received:", :class => "gamma total-title deposit-received" %>
+					<%= builder.check_box :deposit_received %>
+				<% end %>
+		</div>
+	</div>
+
 </article>
 	<%= f.submit "Save changes", :class => "button submit" %>				
 	<% end %>

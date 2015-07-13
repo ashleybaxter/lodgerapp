@@ -69,18 +69,13 @@
 				<span class="frequency"><%= tenant.rent_frequency.capitalize %></span>
 			</div>
 	</div>
-                                        
-	<div class="agreement">
- 		<h4 class="gamma ag-title">Rent Amount</h4>
-			<div class="agreement-info ag-amount">
-			</div>
-	</div>
 
-	<div class="agreement rent-upfront">
-		<h4 class="gamma ag-title">Rent Upfront</h4>
-		<div class="agreement-info ag-frequency">
+	<div class="agreement">
+		<h4 class="gamma ag-title">Rent Amount</h4>
+		<div class="agreement-info ag-amount">
+			<span class="amount"><%= number_to_currency tenant.payment.rent_amount %></span>
 		</div>
-	</div>                                     
+	</div>                               
  </article>
         
 <hr class="divider" />
@@ -93,18 +88,17 @@
 	</div>
 
 	<div class="totals">
+	<% unless tenant.payment.deposit.blank? %>
 		<div class="total">
 		<h3 class="gamma total-title ver">Deposit:</h3>
+			<span class="total-amount"><%= number_to_currency tenant.payment.deposit %></span>
 		</div>
-
+	<% end %>
 		<div class="total">
 		<h3 class="gamma total-title ver">Deposit received:</h3>
+			<span class="total-amount"><%= deposit_true_or_false(tenant) %></span>
 		</div>
-
-		<div class="total">
-		<h3 class="gamma total-title ver">Total rent received:</h3>
-		</div>
-   </div>
+	</div>
 	</article>                                                                    
 	</div>
 </section>

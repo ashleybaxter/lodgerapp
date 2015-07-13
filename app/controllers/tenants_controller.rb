@@ -48,6 +48,6 @@ class TenantsController < ApplicationController
 	end
 
 	def app_params
-		params.require(:tenant).permit(:first_name, :second_name, :house_phone, :mobile_phone, :email, :rent_start_date, :rent_frequency, :tenancy_term, :tenancy_agreement, payment_attributes: [:id, :rent_amount, :deposit, :deposit_received, :rent_upfront ])
+		params.require(:tenant).permit(:first_name, :second_name, :house_phone, :mobile_phone, :email, :rent_start_date, :rent_frequency, :tenancy_term, :tenancy_agreement, payment_attributes: [:id, :rent_amount, :deposit, :deposit_received])
 	end
 end
