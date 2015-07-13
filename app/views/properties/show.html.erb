@@ -74,6 +74,15 @@
 		<h4 class="gamma ag-title">Rent Amount</h4>
 		<div class="agreement-info ag-amount">
 			<span class="amount"><%= number_to_currency tenant.payment.rent_amount %></span>
+		<% if tenant.rent_frequency == "weekly" %>
+			<span class="due">Due in: <%= pluralize(tenant.rent_due_in_weekly, "day") %></span>
+		<% end %>
+		<% if tenant.rent_frequency == "fortnightly" %>
+			<span class="due">Due in: <%= pluralize(tenant.rent_due_in_fortnightly, "day") %></span>
+		<% end %>
+		<% if tenant.rent_frequency == "monthly" %>
+			<span class="due">Due in: <%= pluralize(tenant.rent_due_in_monthly, "day") %></span>
+		<% end %>
 		</div>
 	</div>                               
  </article>

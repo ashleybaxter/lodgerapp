@@ -57,6 +57,12 @@
 			<h4 class="gamma ag-title">Rent Amount</h4>
 			<div class="agreement-info ag-amount">
 				<span class="amount"><%= number_to_currency @tenant.payment.rent_amount %></span>
+				<% if @tenant.rent_frequency == "fortnightly" %>
+					<span class="due">Due in: <%= @tenant.rent_due_in %> days</span>
+				<% end %>
+				<% if @tenant.rent_frequency == "monthly" %>
+					<span class="due">Due in: <%= @tenant.rent_due_in_monthly %> days</span>
+				<% end %>
 			</div>
 		</div>
 	</div>

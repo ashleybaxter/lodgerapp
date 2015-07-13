@@ -14,6 +14,18 @@
 		</div>
 
 		<div class="rent-info">
+		<% if tenant.rent_frequency == "weekly" %>
+			<span class="rent-due">Rent due in:</span>
+			<span class="<%= rent_due_class_weekly(tenant) %>"><%= pluralize(tenant.rent_due_in_weekly, "day") %></span>
+		<% end %>			
+		<% if tenant.rent_frequency == "fortnightly" %>
+			<span class="rent-due">Rent due in:</span>
+			<span class="<%= rent_due_class_fortnightly(tenant) %>"><%= pluralize(tenant.rent_due_in_fortnightly, "day") %></span>
+		<% end %>
+		<% if tenant.rent_frequency == "monthly" %>
+			<span class="rent-due">Rent due in:</span>
+			<span class="<%= rent_due_class_monthly(tenant) %>"><%= pluralize(tenant.rent_due_in_monthly, "day") %></span>
+		<% end %>
 		</div>
 		
 		</div>

@@ -6,6 +6,7 @@ gem "rmagick"
 gem "carrierwave"
 gem 'jquery-turbolinks'
 gem 'cancan'
+gem 'ice_cube'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
