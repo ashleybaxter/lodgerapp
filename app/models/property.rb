@@ -5,6 +5,8 @@ class Property < ActiveRecord::Base
 	
 	validates 	:postcode, :city, :presence => true
 
+	scope :occupied, includes(:tenants).where("tenants.id IS NOT NULL")
+
 	validate :at_least_one_street_address_must_be_present
 
 	private

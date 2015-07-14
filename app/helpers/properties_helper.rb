@@ -36,4 +36,8 @@ module PropertiesHelper
 	def tenant_rent_min(property)
 		[tenant_rent_weekly(property), tenant_rent_fortnightly(property), tenant_rent_monthly(property)].compact.min
 	end
+
+	def vacant_count(property)
+		current_user.properties.count - current_user.properties.occupied.count
+	end
 end
