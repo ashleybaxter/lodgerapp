@@ -62,6 +62,9 @@
 	<div class="agreement">
 		<h4 class="gamma ag-title">End Date</h4>
 			<div class="agreement-info ag-end-date">
+				<span class="date"><%= tenant.one_monthly.to_date if tenant.tenancy_term == "one_monthly" %></span>
+				<span class="date"><%= tenant.half_year.to_date if tenant.tenancy_term == "half_year" %></span>
+				<span class="date"><%= tenant.yearly.to_date if tenant.tenancy_term == "yearly" %></span>
  			</div>
 	</div>
 

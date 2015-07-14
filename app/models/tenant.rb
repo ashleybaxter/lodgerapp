@@ -56,4 +56,43 @@ class Tenant < ActiveRecord::Base
 		due = Date.parse(e)
 		(due - now).to_i
 	end
+
+	def one_monthly
+	unless rent_start_date.future?
+		schedule = Schedule.new(rent_start_date.to_time)
+		schedule.add_recurrence_rule Rule.monthly
+		schedule.next_occurrence
+	else
+		skip_first_occurrence = rent_start_date + 1.month
+		schedule = Schedule.new(skip_first_occurrence.to_time)
+		schedule.add_recurrence_rule Rule.monthly
+		schedule.next_occurrence
+	end
+	end
+
+	def half_year
+	unless rent_start_date.future?
+		schedule = Schedule.new(rent_start_date.to_time)
+		schedule.add_recurrence_rule Rule.monthly(6)
+		schedule.next_occurrence
+	else
+		skip_first_occurrence = rent_start_date + 6.months
+		schedule = Schedule.new(skip_first_occurrence.to_time)
+		schedule.add_recurrence_rule Rule.monthly(6)
+		schedule.next_occurrence
+	end
+	end
+
+	def yearly
+	unless rent_start_date.future?
+		schedule = Schedule.new(rent_start_date.to_time)
+		schedule.add_recurrence_rule Rule.yearly
+		schedule.next_occurrence
+	else
+		skip_first_occurrence = rent_start_date + 1.years
+		schedule = Schedule.new(skip_first_occurrence.to_time)
+		schedule.add_recurrence_rule Rule.yearly
+		schedule.next_occurrence
+	end
+	end
 end
