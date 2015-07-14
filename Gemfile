@@ -2,11 +2,12 @@ source 'https://rubygems.org'
 
 gem 'devise'
 gem 'jquery-ui-rails'
-gem "rmagick"
-gem "carrierwave"
+gem 'rmagick'
+gem 'carrierwave'
 gem 'jquery-turbolinks'
 gem 'cancan'
 gem 'ice_cube'
+gem 'tabs_on_rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'

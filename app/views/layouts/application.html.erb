@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Lodgerapp</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-  <!-- Google Fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+<title>Lodgerapp</title>
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= csrf_meta_tags %>
+<!-- Google Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <header class="main-header">
 	<div class="wrapper">
 		<nav class="main-nav">
 			<%= link_to image_tag("lodger-app-logo.png", :alt => "Lodger App", :class => "logo"), properties_url %>
+			<%= tabs_tag :open_tabs => { :class => "menu main-menu" } do |tab| %>
+			<%= tab.property 'Properties', properties_path(@property), :title => "Property Overview" %>
+			<%= tab.tenant 'Tenants', current_tenants_path(@tenant), :title => "Tenants" %>
+			<% end %>
 		</nav>
 		<% if user_signed_in? %>
 		<nav class="account-info">

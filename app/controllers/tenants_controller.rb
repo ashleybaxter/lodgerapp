@@ -1,6 +1,8 @@
 class TenantsController < ApplicationController
 	before_filter :authenticate_user!
 
+	set_tab :tenant, :only => %w(current)
+
 	def new
 		@property = Property.find(params[:property_id])
 		@tenant = @property.tenants.build
