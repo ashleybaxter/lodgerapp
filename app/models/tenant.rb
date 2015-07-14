@@ -8,7 +8,7 @@ class Tenant < ActiveRecord::Base
 	mount_uploader :tenancy_agreement, DocumentUploader
 
 	belongs_to :property
-	has_one :payment
+	has_one :payment, :dependent => :destroy
 
 	accepts_nested_attributes_for :payment
 

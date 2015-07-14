@@ -1,6 +1,6 @@
 class Property < ActiveRecord::Base
 	belongs_to :user
-	has_many :tenants
+	has_many :tenants, :dependent => :destroy
 	has_many :payments, :through => :tenants
 	
 	validates 	:postcode, :city, :presence => true
