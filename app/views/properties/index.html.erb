@@ -3,12 +3,12 @@
 		<h2 class="beta properties-filter-title">Properties:</h2>
 			<ul class="menu properties-filter">
 				<li class="active">
-					<%= link_to properties_path(@property), :class => "filter" do %>
-					Occupied<span class="property-amount"> (<%= @properties.occupied.count %>)</span>
-					<% end %>
+					<span class="filter">Occupied</a><span class="property-amount"> (<%= @properties.occupied.count %>)</span>
 				</li>
 				<li>
-					Vacant
+					<%= link_to vacant_properties_path(@property), :class => "filter" do %>
+					Vacant<span class="property-amount"> (<%= vacant_count(@properties) %>)</span>
+					<% end %>
 				</li>
 			</ul>
 	<% unless @properties.empty? %>
@@ -19,7 +19,7 @@
 	</div>
 
 	<section class="properties list">
-	<% @properties.each do |property| %>
+	<% @properties.each do |property| if property.tenants.any? %>
 		<article class="property">
 			<div class="property-details">
 				<div class="property-info">
@@ -44,5 +44,6 @@
 	<p class="property-empty">You don't have any properties yet. <%= link_to new_property_path(@property), :class => "button new-property" do %>
 	<span class="icon add-new"></span><%= "Add one now" %>
 	<% end %></p>
+	<% end %>
 	<% end %>
 </div>

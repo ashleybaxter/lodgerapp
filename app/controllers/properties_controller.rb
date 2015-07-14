@@ -45,6 +45,10 @@ class PropertiesController < ApplicationController
 		redirect_to properties_path
 	end
 
+	def vacant
+		@properties = current_user.properties.order(:postcode)
+	end
+
 	def app_params
 		params.require(:property).permit(:house_number, :street_address, :street_address_two, :city, :postcode)
 	end

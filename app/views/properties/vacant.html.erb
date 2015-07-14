@@ -1,0 +1,42 @@
+<div class="two-thirds main-content">
+	<div class="properties-management">
+		<h2 class="beta properties-filter-title">Properties:</h2>
+			<ul class="menu properties-filter">
+				<li>
+					<%= link_to properties_path(@property), :class => "filter" do %>
+					Occupied<span class="property-amount"> (<%= @properties.occupied.count %>)</span>
+					<% end %>
+				</li>
+				<li class="active">
+					<span class="filter">Vacant <span class="property-amount"> (<%= vacant_count(@properties) %>)</span></span>
+				</li>
+			</ul>
+	<% unless @properties.blank? %>
+		<%=link_to new_property_path(@property), :class => "button new-property" do %>
+		<span class="icon add-new"></span><%= "New property" %>
+		<% end %>
+	<% end %>
+	</div>
+
+	<section class="properties list">
+	<% @properties.each do |property| unless property.tenants.any? %>
+		<article class="property">
+			<div class="property-details">
+				<div class="vacant property-info">
+					<h3 class="gamma property-address"><%= link_to truncate(full_address(property), :length => 45), property_path(property) %></h3>
+						<div class="menu tenants-vacant">
+							Vacant
+						</div>
+				</div>
+
+				<div class="rent-info">
+				<%= link_to new_property_tenant_path(property), :class => "button-light new-property" do %>
+					<span class="icon add-new-dark"></span><%= "Add Tenant" %>
+				<% end %>
+			</div>
+      		</div>
+		</article>
+	</section>
+	<% end %>
+	<% end %>
+</div>
