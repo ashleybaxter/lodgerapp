@@ -15,27 +15,27 @@ module TenantsHelper
 		end
 	end
 
-def rent_due_class_weekly(tenant)
+	def rent_due_class_weekly(tenant)
 	if tenant.rent_due_in_weekly <= 7
 		return 'rent due-soon'
 	else
 		return 'rent due-distance'
 	end
-end
+	end
 
-def rent_due_class_monthly(tenant)
+	def rent_due_class_monthly(tenant)
 	if tenant.rent_due_in_monthly <= 7
 		return 'rent due-soon'
 	else
 		return 'rent due-distance'
 	end
-end
+	end
   
-def rent_due_class_fortnightly(tenant)
+	def rent_due_class_fortnightly(tenant)
 	if tenant.rent_due_in_fortnightly <= 7
 		return 'rent due-soon'
 	else
 		return 'rent due-distance'
 	end
-end
+	end
 end

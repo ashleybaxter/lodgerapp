@@ -37,6 +37,14 @@ module PropertiesHelper
 		[tenant_rent_weekly(property), tenant_rent_fortnightly(property), tenant_rent_monthly(property)].compact.min
 	end
 
+	def rent_class(property)
+		if tenant_rent_min(property) <= 7
+		return 'rent due-soon'
+		else
+		return 'rent due-distance'
+	end
+	end
+
 	def vacant_count(property)
 		current_user.properties.count - current_user.properties.occupied.count
 	end

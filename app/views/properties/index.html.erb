@@ -32,7 +32,7 @@
 			<div class="rent-info">
 			<% unless property.tenants.empty? %>
 				<span class="rent-due">Rent due in:</span>
-				<span class="rent due-soon"><%= pluralize(tenant_rent_min(property), "day") %></span>
+				<span class="<%= rent_class(property) %>"><%= pluralize(tenant_rent_min(property), "day") %></span>
 			<% end %>
 			</div>
       		</div>
