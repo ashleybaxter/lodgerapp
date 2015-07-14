@@ -75,8 +75,10 @@
 
 	<article class="tenant-extras">
 		<div class="contract">
+			<% unless @tenant.tenancy_agreement.blank? %>
 			<%= link_to @tenant.tenancy_agreement.url, :class => "pdf-download" do %>
 				<span class="icon-pdf"></span><%= "View Tenancy Agreement" %>
+			<% end %>
 			<% end %>
 		</div>
 		<div class="totals">
