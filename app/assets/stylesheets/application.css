@@ -673,8 +673,7 @@ body > .wrapper {
 .logo {
 	display: inline-block;
 	vertical-align: middle;
-	margin-right: 1.1875em;
-	padding-top: 8px; }
+	margin-right: 1.1875em; }
 	@media all and (max-width: 37.5em) {
 		.logo {
 			float: left;

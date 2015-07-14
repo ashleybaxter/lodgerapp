@@ -37,13 +37,13 @@
 			</div>
       		</div>
 		</article>
-	</section>
 	<% end %>
+	<% end %>
+	</section>
 
 	<% if @properties.empty? %>
 	<p class="property-empty">You don't have any properties yet. <%= link_to new_property_path(@property), :class => "button new-property" do %>
 	<span class="icon add-new"></span><%= "Add one now" %>
 	<% end %></p>
-	<% end %>
 	<% end %>
 </div>

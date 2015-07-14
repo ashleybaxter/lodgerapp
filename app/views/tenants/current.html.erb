@@ -33,4 +33,20 @@
 
 <% end %>
 <% end %>
+
+<% if current_user.properties.empty? %>
+	<p class="property-empty">Your tenant needs a property to live in. <%= link_to new_property_path(@property), :class => "button new-property" do %>
+	<span class="icon add-new"></span><%= "Add property" %>
+    
+	<% end %>
+	</p>
+<% end %>
+
+<% if current_user.properties.present? && @tenants.empty? %>
+	<p class="property-empty">You haven't added any tenants yet. <%= link_to vacant_properties_path(@property), :class => "button new-property" do %>
+	<span class="icon add-new"></span><%= "Add tenant" %>
+	<% end %>
+	</p>
+<% end %>
+
 </section>
