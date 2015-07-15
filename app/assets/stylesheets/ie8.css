@@ -1,0 +1,6 @@
+.main-nav > a, .main-menu {
+  float: left; }
+
+.tenants {
+	display: inline-block;
+}
