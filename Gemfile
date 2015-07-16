@@ -8,6 +8,7 @@ gem 'jquery-turbolinks'
 gem 'cancan'
 gem 'ice_cube'
 gem 'tabs_on_rails'
+gem 'intercom-rails'
 
 group :production do
 	gem 'pg', '0.15.1'
