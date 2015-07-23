@@ -1617,7 +1617,7 @@ a.overview-title {
 	margin: 0 auto;
 	margin-bottom: 35px;
 	display: block;
-	border: 1px rgba(0,0,0,.0.5) solid;
+	border: 1px rgba(0,0,0,0.2) solid;
 	border-radius: 23px;
 	-moz-border-radius: 23px;
 	-webkit-border-radius: 23px;

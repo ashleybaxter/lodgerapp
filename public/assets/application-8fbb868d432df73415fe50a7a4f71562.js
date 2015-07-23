@@ -15262,6 +15262,14 @@ catch(e){
         }
     });
 })(jQuery);
+(function() {
+  jQuery(function() {
+    return $('#tenant_rent_start_date').datepicker({
+      dateFormat: 'dd/mm/yy'
+    });
+  });
+
+}).call(this);
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -15295,6 +15303,6 @@ $(function(){
 
 $(document).ready(function(){
     $('select#tenant_tenancy_term, select#tenant_rent_frequency').customSelect();
-		$('select#event_start_time_4i, select#event_start_time_5i').customSelect({customClass:'eventSelect'});
-		$('select#event_property_id').customSelect({customClass:'eventPropertySelect'});
+	$('select#event_start_time_4i, select#event_start_time_5i').customSelect({customClass:'eventSelect'});
+	$('select#event_property_id').customSelect({customClass:'eventPropertySelect'});
 });
