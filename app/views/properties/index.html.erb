@@ -3,7 +3,7 @@
 		<h2 class="beta properties-filter-title">Properties:</h2>
 			<ul class="menu properties-filter">
 				<li class="active">
-					<span class="filter">Occupied</a><span class="property-amount"> (<%= @properties.occupied.count %>)</span>
+					<span class="filter">Occupied</a><span class="property-amount"> (<%= occupied_count(@properties) %>)</span>
 				</li>
 				<li>
 					<%= link_to vacant_properties_path(@property), :class => "filter" do %>

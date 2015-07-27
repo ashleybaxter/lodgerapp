@@ -46,6 +46,10 @@ module PropertiesHelper
 	end
 
 	def vacant_count(property)
-		current_user.properties.count - current_user.properties.occupied.count
+		current_user.properties.count - occupied_count(property)
+	end
+
+	def occupied_count(property)
+		current_user.tenants.where("tenants.id IS NOT NULL").count
 	end
 end

@@ -4,7 +4,7 @@
 			<ul class="menu properties-filter">
 				<li>
 					<%= link_to properties_path(@property), :class => "filter" do %>
-					Occupied<span class="property-amount"> (<%= @properties.occupied.count %>)</span>
+					Occupied<span class="property-amount"> (<%= occupied_count(@properties) %>)</span>
 					<% end %>
 				</li>
 				<li class="active">
