@@ -1606,6 +1606,15 @@ a.overview-title {
 	width: auto !important;
 	margin-right: 5px; }
 
+.footer-text {
+	font-size: 90%;
+}
+
+.footer-text img {
+	vertical-align: middle;
+	margin-left: 4px;
+}
+
 /* --------------------------------------
 		Flash Messages and Validation
 -------------------------------------- */
@@ -2173,12 +2182,3 @@ input#hidden-image {
 			
 .extra-padding {
 	padding: 5px; }
-
-.footer-text {
-	font-size: 90%;
-}
-
-.footer-text img {
-	vertical-align: middle;
-	margin-left: 4px;
-}
