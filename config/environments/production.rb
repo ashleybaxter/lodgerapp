@@ -33,18 +33,9 @@ Lodgerapp::Application.configure do
   # Generate digests for assets URLs.
   config.assets.digest = true
   config.assets.compile = true
-<<<<<<< HEAD
-  config.assets.precompile =  ['*.js', '*.css', '*.css.erb']
-  config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/
-=======
-<<<<<<< HEAD
-  config.assets.precompile =  ['*.js', '*.css', '*.css.erb'] 
-  config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/
-=======
   config.assets.precompile =  ['*.js', '*.css', '*.css.erb', 'active_admin.css'] 
   config.assets.precompile += ['active_admin.css', 'active_admin.js']
->>>>>>> origin/master
->>>>>>> origin/master
+  config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/
 
   # Version of your assets, change this if you want to expire all your assets.
   config.assets.version = '1.0'
