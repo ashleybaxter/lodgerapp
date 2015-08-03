@@ -34,7 +34,7 @@ Lodgerapp::Application.configure do
   config.assets.digest = true
   config.assets.compile = true
   config.assets.precompile =  ['*.js', '*.css', '*.css.erb', 'active_admin.css'] 
-  config.assets.precompile += %w( active_admin/*.* )
+  config.assets.precompile += ['active_admin.css', 'active_admin.js']
 
   # Version of your assets, change this if you want to expire all your assets.
   config.assets.version = '1.0'
