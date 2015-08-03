@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'devise'
-gem 'jquery-ui-rails'
+gem 'jquery-ui-rails', '~> 5.0'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'jquery-turbolinks'
@@ -9,6 +9,7 @@ gem 'cancan'
 gem 'ice_cube'
 gem 'tabs_on_rails'
 gem 'intercom-rails'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :production do
 	gem 'pg', '0.15.1'
