@@ -5,3 +5,4 @@
 /tmp
 /test
 public/uploads
+public/assets/**
