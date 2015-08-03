@@ -1,0 +1,1 @@
+(function(){jQuery(function(){return $("#tenant_rent_start_date").datepicker({dateFormat:"dd/mm/yy"})})}).call(this);
