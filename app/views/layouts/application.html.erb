@@ -27,7 +27,7 @@ ga('send', 'pageview');
 		<nav class="main-nav">
 			<%= link_to image_tag("lodger-app-logo.png", :alt => "Lodger App", :class => "logo"), properties_url %>
 			<%= tabs_tag :open_tabs => { :class => "menu main-menu" } do |tab| %>
-			<%= tab.property 'Properties', properties_path(@property), :title => "Property Overview" %>
+			<%= tab.property 'Property Overview', properties_url, :title => "Property Overview" %>
 			<%= tab.tenant 'Tenants', current_tenants_path(@tenant), :title => "Tenants" %>
 			<% end %>
 		</nav>
